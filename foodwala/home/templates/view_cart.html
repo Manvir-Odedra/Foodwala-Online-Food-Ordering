@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body %}
+
+<!-- Food Order Section Start -->
+    <section class="order">
+        <div class="container">
+            <h2 class="text-center">Fill this form to confirm your order.</h2>
+            <table class="tbl-full" border="0">
+                <tr>
+                    <th>S.N.</th>
+                    <th>Food</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img src="/media/{{item.product.food_img}}" alt="Food"></td>
+                    <td>{{ item.product.food_name }}</td>
+                    <td>₹{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.total_price }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'remove_from_cart' item.id %}" style="display:inline;">
+                        {% csrf_token %}
+                            <button type="submit">❌ Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                                <tr>
+                    <th colspan="5">Total</th>
+                    <th>₹{{ total }}</th>
+                    <th></th>
+                </tr>
+            </table>
+            <form method="POST" class="form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Delivery Details</legend>
+                    <p class="label">Email</p>
+                    <input type="email" placeholder="Enter your email..." required>
+                    <p class="label">Phone Number</p>
+                    <input type="text" pattern="\d{10}" inputmode="numeric" name="mobileh" placeholder="Enter your phone..." maxlength="10" minlength="10" required>
+                    <p class="label">Address</p>
+                    <input type="text" name="addressh" placeholder="Enter your address" required>
+                    <input type="submit" value="Confirm Order" class="btn-primary">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- Food Order Section End -->
+
+    {% endblock  %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<!-- Feedback Section Start -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="text-center">Get in touch</h2>
+            <div class="heading-border"></div>
+
+            <form method="post" class="form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Feedback Us</legend>
+                    
+                        <div class="messages">
+                            {% for feed in messages %}
+                                <p class="success">{{feed}}</p>
+                            {% endfor %}
+                        </div>
+                    
+                    
+                    
+                    <p class="label">Full Name</p>
+                    <input type="text" name="fnameh" placeholder="Enter your name..." required>
+                    <p class="label">Email</p>
+                    <input type="email" name="emailh" placeholder="Enter your email..." required>
+                    <p class="label">Phone Number</p>
+                    <input type="text" pattern="\d{10}" inputmode="numeric" name='phoneh' placeholder="Enter your phone..." maxlength="10" minlength="10" required>
+                    <p class="label">Subject</p>
+                    <input type="text" name="subjecth" placeholder="Enter your subject" required>
+                    <p class="label">Message</p>
+                    <textarea name="messageh" id="" rows="5" placeholder="Enter your message" required></textarea>
+                    <input type="submit" value="Submit" class="btn-primary">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- Feedback Section End -->
+
+     <!-- Map Section Start -->
+     <section class="map">
+        <h2 class="text-center">Find Us</h2>
+        <div class="heading-border"></div>
+
+        <iframe width="1350" height="500" style="border:0" 
+            src="https://maps.google.com/maps?q=22.3039,70.8022&z=12&output=embed">
+        </iframe>
+     </section>
+     <!-- Map Section End -->
+
+
+{% endblock  %}

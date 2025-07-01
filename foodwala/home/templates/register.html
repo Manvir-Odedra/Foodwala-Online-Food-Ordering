@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <!-- Register Section Start -->
+    <section class="login">
+        <div class="container">
+            <h2 class="text-center">Register</h2>
+            <div class="heading-border"></div>
+
+            <form method="post" class="form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Register</legend>
+                    <div class="messages">
+                            {% for msg in messages %}
+                                <p class="success">{{msg}}</p>
+                            {% endfor %}
+                    </div>
+                    <p class="label">Full Name</p>
+                    <input type="text" name="fnameh" placeholder="Enter your name..." required>
+
+                    <p class="label">Last Name</p>
+                    <input type="text" name="lnameh" placeholder="Enter your name..." required>
+
+                    <p class="label">Email</p>
+                    <input type="email" name="emailh" placeholder="abc@gmail.com" required>
+
+                    <p class="label">Password</p>
+                    <input type="password" name="passh" placeholder="Enter your password..." required>
+
+                    <p class="label">Confirm Password</p>
+                    <input type="password" name="cpassh" placeholder="Enter your password..." required>
+                    <input type="submit" value="Register" class="btn-primary">
+
+                    <div class="simple-register">
+                        <p>Already have an account? <a href="{% url "loginp" %}">Login here</a></p>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- Register Section End -->
+
+
+{% endblock  %}

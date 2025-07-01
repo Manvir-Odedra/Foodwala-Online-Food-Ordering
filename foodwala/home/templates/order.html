@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+    <!-- Food Order Section Start -->
+    <section class="order">
+        <div class="container">
+            <h2 class="text-center">Fill this form to confirm your order.</h2>
+            <table class="tbl-full" border="0">
+                <tr>
+                    <th>S.N.</th>
+                    <th>Food</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img src="static/img/food/p1.jpg" alt="Food"></td>
+                    <td>Pizza</td>
+                    <td>$ 8.00</td>
+                    <td>1</td>
+                    <td>$ 8.00</td>
+                    <td><a href="#" class="btn-delete">&times;</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="static/img/food/s1.jpg" alt="Food"></td>
+                    <td>Sandwich</td>
+                    <td>$ 8.00</td>
+                    <td>1</td>
+                    <td>$ 8.00</td>
+                    <td><a href="#" class="btn-delete">&times;</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img src="static/img/food/b1.jpg" alt="Food"></td>
+                    <td>Burder</td>
+                    <td>$ 8.00</td>
+                    <td>1</td>
+                    <td>$ 8.00</td>
+                    <td><a href="#" class="btn-delete">&times;</a></td>
+                </tr>
+                <tr>
+                    <th colspan="5">Total</th>
+                    <th>$24.00</th>
+                    <th></th>
+                </tr>
+            </table>
+            <form action="" class="form">
+                <fieldset>
+                    <legend>Delivery Details</legend>
+                    <p class="label">Full Name</p>
+                    <input type="text" placeholder="Enter your name..." required>
+                    <p class="label">Phone Number</p>
+                    <input type="contact" placeholder="Enter your phone..." required>
+                    <p class="label">Email</p>
+                    <input type="email" placeholder="Enter your email..." required>
+                    <p class="label">Address</p>
+                    <input type="text" placeholder="Enter your address..." required>
+                    <input type="submit" value="Confirm Order" class="btn-primary">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- Food Order Section End -->
+{% endblock  %}

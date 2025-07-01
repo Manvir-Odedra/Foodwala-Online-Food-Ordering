@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<!-- Category Section Start -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="text-center">Explore Foods</h2>
+            <div class="heading-border"></div>
+			
+        <form class = "search-form">
+            <div class="container search-container">
+				<div class="search-box search-box-inline">
+					<input type="search" name="searchnameh" placeholder="Search for food...">
+					<button type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+        </form> 
+        
+    
+            <div class="grid-3">
+                {% for read in sitem %}
+                <a href="category-foods.html">
+                    <div class="float-container">
+                        <img src="/media/{{read.cat_img}}" class="img-responsive" alt="">
+                        <h3 class="float-text text-white">{{read.cat_name}}</h3>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Category Section End -->
+{% endblock  %}

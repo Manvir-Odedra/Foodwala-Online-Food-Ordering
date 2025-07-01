@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+<!-- Login Section Start -->
+    <section class="login">
+        <div class="container">
+            <h2 class="text-center">Update Profile</h2>
+            <div class="heading-border"></div>
+
+            <form method="post" class="form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Details</legend>
+                    <div class="messages">
+                            {% for msg in messages %}
+                                <p class="success">{{msg}}</p>
+                            {% endfor %}
+                    </div>
+                    <p class="label">Full Name</p>
+                    <input type="text" name="fnameh" value="{{usrinfo.first_name}}" placeholder="Enter your name..." required>
+
+                    <p class="label">Last Name</p>
+                    <input type="text" name="lnameh" value="{{usrinfo.last_name}}" placeholder="Enter your name..." required>
+
+                    <p class="label">Email</p>
+                    <input type="email" name="emailh" value="{{usrinfo.email}}" placeholder="abc@gmail.com" required>
+
+                    <input type="submit" value="Update" class="btn-primary">
+
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- Register Section End -->
+{% endblock  %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="static/img/home-bg1.png" alt="bg1" />
+        <div class="slide-text">Delicious Chinese Delivered Hot</div>
+      </div>
+      <div class="slide">
+        <img src="static/img/home-bg2.jpg" alt="bg2" />
+        <div class="slide-text">Your Favorite Fafda Jalebi in Minutes</div>
+      </div>
+      <div class="slide">
+        <img src="static/img/home-bg3.jpg" alt="bg3" />
+        <div class="slide-text">Fresh Punjabi at Your Doorstep</div>
+      </div>
+      <div class="slide">
+        <img src="static/img/home-bg1.png" alt="bg4" />
+        <div class="slide-text">Delicious Chinese Delivered Hot</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Section Start -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="text-center">Explore Foods</h2>
+      <div class="heading-border"></div>
+
+      <div class="grid-3">
+        {% for read in show|slice:':3' %}
+          <a href="category-foods.html">
+            <div class="float-container">
+              <img src="/media/{{ read.cat_img }}" class="img-responsive" alt="" />
+              <h3 class="float-text text-white">{{ read.cat_name }}</h3>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    <p class="text-center">
+      <a href="{% url 'categoryp' %}" class="food-btn">See All Category</a>
+    </p>
+  </section>
+  <!-- Category Section End -->
+
+  <section class="check-foods-section">
+    <div class="container">
+      <div class="food-content">
+        <div class="food-image">
+          <img src="static/img/home-bg2.jpg" alt="Delicious Food" />
+        </div>
+        <div class="food-description">
+          <h2>Check Our Delicious Foods</h2>
+          <p>Discover a world of flavor! Our chefs craft every dish with the finest ingredients and bold recipes. Whether you're craving classic favorites or looking for something new, we’ve got something for everyone.</p>
+          <a href="{% url 'foodp' %}" class="food-btn">Explore Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="features-section">
+    <h2 class="features-heading">Why Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card">🚚 Fast Delivery</div>
+      <div class="feature-card">🍽️ Fresh Ingredients</div>
+      <div class="feature-card">⭐ Rated by 100+ Customers</div>
+    </div>
+  </div>
+
+
+  <!-- Carousel container: holds visible area -->
+  <div class="carousel-container">
+    <!-- Track that slides left/right -->
+    <div class="carousel-track">
+      <!-- Individual review boxes -->
+      <div class="review">
+        <img src="static/img/pic-3.png" alt="John" />
+        <p>"Amazing product!"</p>
+        <span>– John</span>
+      </div>
+
+      <div class="review">
+        <img src="static/img/pic-2.png" alt="Sarah" />
+        <p>"Love the quality and speed."</p>
+        <span>– Sarah</span>
+      </div>
+
+      <div class="review">
+        <img src="static/img/pic-1.png" alt="Mike" />
+        <p>"Highly recommend to everyone."</p>
+        <span>– Mike</span>
+      </div>
+
+      <div class="review">
+        <img src="static/img/pic-6.png" alt="Lisa" />
+        <p>"Support was excellent."</p>
+        <span>– Lisa</span>
+      </div>
+
+      <div class="review">
+        <img src="static/img/user3.jpg" alt="Ava" />
+        <p>"Fast and reliable."</p>
+        <span>– Ava</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Section Start -->
+  <section class="map">
+    <h2 class="text-center">Find Us</h2>
+    <div class="heading-border"></div>
+
+    <iframe width="1350" height="500" style="border:0" src="https://maps.google.com/maps?q=22.3039,70.8022&z=12&output=embed"></iframe>
+  </section>
+  <!-- Map Section End -->
+{% endblock %}

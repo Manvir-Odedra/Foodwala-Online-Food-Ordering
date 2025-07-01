@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-image">
+      <img src="/static/img/user3.jpg" alt="User Image" />
+    </div>
+    {% if user.is_authenticated %}
+  <p>Welcome, {{ user.first_name }}!</p>
+  <p>Your email: {{ user.email }}</p>
+{% else %}
+  <p>Please <a href="{% url 'loginp' %}">log in</a> to continue.</p>
+{% endif %}
+    <div class="profile-info">
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+      <a href="/update-item/{{user.id}}" class="btn-primary">Edit Profile</a>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock  %}

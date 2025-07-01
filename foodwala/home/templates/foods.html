@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+  <!-- Foods Section Start -->
+  <section class="food-menu">
+    <div class="container">
+      <h2 class="text-center">Food Menu</h2>
+      <div class="heading-border"></div>
+
+      <form class="search-form">
+        <div class="container search-container">
+          <div class="search-box search-box-inline">
+            <input type="search" name="searchnameh" placeholder="Search for food..." />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <div class="grid-2">
+        {% for get_item in fitem %}
+          <div class="food-menu-box">
+            <form method="post" action="{% url 'add_to_cart' get_item.id %}">
+              {% csrf_token %}
+              <div class="food-menu-img">
+                <img src="/media/{{ get_item.food_img }}" alt="" class="img-responsive img-curve" />
+              </div>
+              <div class="food-menu-desc">
+                <h4>{{ get_item.food_name }}</h4>
+                <h4>{{ get_item.cat_name }}</h4>
+                <p class="food-price">₹{{ get_item.price }} - {{ get_item.quantity }}Kg</p>
+                <p class="food-details">{{ get_item.description|truncatechars:89 }}</p>
+                <p class="food-price"></p>
+                <div class="quantity-selector">
+                  <button type="button" class="qty-btn minus">−</button>
+                  <input type="text" name="quantity" class="qty-input" value="1" readonly />
+                  <button type="button" class="qty-btn plus">+</button>
+                </div>
+
+                <button type="submit" class="btn-primary">Add to Cart</button>
+              </div>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- Foods Section End -->
+{% endblock %}
