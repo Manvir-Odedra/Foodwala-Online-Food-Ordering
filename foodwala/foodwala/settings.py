@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'foodwala.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '', #Enter your Postgresql name
-        'USER': '', #Enter your Postgresql username
-        'PASSWORD': '', #Enter your Postgresql password
-        'HOST': '',  # Replace with your PostgreSQL server's address if necessary
-        'PORT': '',          # Leave empty to use the default PostgreSQL port (usually 5432)
+        'NAME': 'postgres', #Enter your Postgresql name
+        'USER': 'postgres', #Enter your Postgresql username
+        'PASSWORD': '(man@7)Vir', #Enter your Postgresql password
+        'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
+        'PORT': '5432',          # Leave empty to use the default PostgreSQL port (usually 5432)
     }
 }
 
