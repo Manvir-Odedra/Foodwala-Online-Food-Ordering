@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from home.models import *
+from django.utils import timezone
 
 # Create your views here.
 def homepage(request):
@@ -91,7 +92,7 @@ def feedbackpage(request):
         messagev = request.POST.get('messageh')
 
         store_feed = Contact.objects.create(
-            name = fnamev, email = emailv, number = numberv, subject = subjectv, message = messagev
+            name = fnamev, email = emailv, number = numberv, subject = subjectv, message = messagev, created_at = timezone.now(), updated_at = timezone.now()
         )
         store_feed.save()
 
