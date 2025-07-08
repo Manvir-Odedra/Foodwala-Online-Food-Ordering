@@ -3,7 +3,17 @@ from django.contrib.auth.models import User
 from base.models import BaseModel
 
 # Create your models here.
+class Contact(BaseModel):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    number = models.IntegerField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
 
+    def __str__(self):
+        return self.name
+    
+    
 class Category(models.Model):
 
     cat_name = models.CharField(max_length=100)
