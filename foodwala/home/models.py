@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from base.models import BaseModel
 
 # Create your models here.
-class Contact(BaseModel):
-    name = models.CharField(max_length=100)
 
 class Category(models.Model):
 
