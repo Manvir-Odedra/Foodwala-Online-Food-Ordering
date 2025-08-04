@@ -14,3 +14,5 @@ Foodwala – An online food ordering web application built with Django, Python, 
 - 🚀 Ready for deployment via Git
 
 Built with love 🧡 for foodies and developers alike.
+
+![App Screenshot](assets/home-bg1.png)
